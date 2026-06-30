@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mqzhcx9kzz16e",
+    "username": "admin",
+    "passwordHash": "$2b$10$9fU4nSCMNUCoCUx.0BwAAeLiTRsl4ZYKaiOamlxhgyUOv23a8Ce7a",
+    "role": "superadmin",
+    "createdAt": "2026-06-29T17:17:03.464Z"
+  },
+  {
+    "id": "mqzyxlebupt9u",
+    "username": "Thany",
+    "passwordHash": "$2b$10$rlIVovT.VsUdQgt71tFPAO984vxHCEDSTc0mLbcJy7LvZg2XUTa4i",
+    "role": "superadmin",
+    "createdAt": "2026-06-30T01:29:01.331Z"
+  },
+  {
+    "id": "mqzyxwjt0veon",
+    "username": "Dina",
+    "passwordHash": "$2b$10$PXXkoy71RbmsvY127wsBsOJEfLbfj49pfKltCGHUHtOfV5VuHc6A2",
+    "role": "editor",
+    "createdAt": "2026-06-30T01:29:15.785Z"
+  }
+]
