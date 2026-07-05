@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaRegImage } from "react-icons/fa6";
 import { MdOutlineTipsAndUpdates, MdDelete } from "react-icons/md";
 
-const BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 interface MediaItem {
   id: number;
