@@ -2,7 +2,7 @@ import { Article } from "@/types";
 
 const BASE =
   process.env.NEXT_PUBLIC_API_URL ??
-  "https://news-api-production-5937.up.railway.app/api";
+  "https://news-api-production-5937.up.railway.app";
 
 function h(): HeadersInit {
   return { "Content-Type": "application/json", Accept: "application/json" };
