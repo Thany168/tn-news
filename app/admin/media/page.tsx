@@ -3,7 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import { FaRegImage } from "react-icons/fa6";
 import { MdOutlineTipsAndUpdates, MdDelete } from "react-icons/md";
 
-const BASE = process.env.NEXT_PUBLIC_API_URL ?? "";
+const BASE =
+  process.env.NEXT_PUBLIC_API_URL ??
+  "https://news-api-production-5937.up.railway.app";
 
 interface MediaItem {
   id: number;
@@ -347,10 +349,7 @@ export default function MediaPage() {
                       padding: "6px 0",
                       fontSize: 12,
                       fontWeight: 600,
-                      background:
-                        copied === item.id
-                          ? "var(--success-bg)"
-                          : "var(--accent)",
+                      background: copied === item.id ? "green" : "blue",
                       color: copied === item.id ? "var(--success)" : "white",
                       border: copied === item.id ? "1px solid #a3d9bb" : "none",
                       borderRadius: "var(--radius)",

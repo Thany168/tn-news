@@ -9,15 +9,8 @@
   {
     "id": "mqzyxlebupt9u",
     "username": "Thany",
-    "passwordHash": "$2b$10$rlIVovT.VsUdQgt71tFPAO984vxHCEDSTc0mLbcJy7LvZg2XUTa4i",
+    "passwordHash": "$2b$10$RzOECYcsvkb14qImd6ZGN.E9XfTcBeztmqK37H1enu/H/35htGIKW",
     "role": "superadmin",
     "createdAt": "2026-06-30T01:29:01.331Z"
-  },
-  {
-    "id": "mqzyxwjt0veon",
-    "username": "Dina",
-    "passwordHash": "$2b$10$PXXkoy71RbmsvY127wsBsOJEfLbfj49pfKltCGHUHtOfV5VuHc6A2",
-    "role": "editor",
-    "createdAt": "2026-06-30T01:29:15.785Z"
   }
 ]
