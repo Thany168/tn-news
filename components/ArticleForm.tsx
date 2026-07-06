@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Article, Category } from "@/types";
-
+//
+import RichTextEditor from "@/components/RichTextEditor";
 const CATEGORIES: Category[] = [
   "business",
   "technology",
@@ -278,7 +279,7 @@ export default function ArticleForm({ article, mode }: Props) {
           </div>
 
           {/* Content */}
-          <div className={card}>
+          {/* <div className={card}>
             <div className="flex items-center justify-between mb-1.5">
               <label className={`${label} mb-0`}>
                 Article content (HTML) *
@@ -321,6 +322,16 @@ export default function ArticleForm({ article, mode }: Props) {
               }
               rows={18}
               className={`${input} font-mono text-xs leading-relaxed`}
+            />
+          </div> */}
+          <div className={card}>
+            <div className="flex items-center justify-between mb-3">
+              <label className={`${label} mb-0`}>Article content *</label>
+              <span className="text-xs text-gray-400">Rich text editor</span>
+            </div>
+            <RichTextEditor
+              value={form.content}
+              onChange={(html: any) => set("content", html)}
             />
           </div>
 
