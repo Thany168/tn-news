@@ -3,7 +3,6 @@
 interface TickerProps {
   headlines: { slug: string; title: string }[];
 }
-
 export function BreakingTicker({ headlines }: TickerProps) {
   if (headlines.length === 0) return null;
 

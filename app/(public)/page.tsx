@@ -31,7 +31,6 @@ export default async function HomePage({
   const topStories = articles.slice(4, 10);
   const latestNews = articles.slice(0, 8);
 
-  // Sidebar data — derived from existing articles, no new backend needed
   const trending = allArticles.slice(0, 5);
   const mostRead = [...allArticles].reverse().slice(0, 5);
   const editorsPicks = allArticles.slice(0, 3);
@@ -45,7 +44,7 @@ export default async function HomePage({
 
   return (
     <div className="min-h-screen bg-[#fafbfc]">
-      {/* ── Breaking ticker ── */}
+      {/*  Breaking ticker  */}
       <BreakingTicker
         headlines={allArticles.slice(0, 6).map((a) => ({
           slug: a.slug,
@@ -53,10 +52,10 @@ export default async function HomePage({
         }))}
       />
 
-      {/* ── Search bar strip ── */}
+      {/* Search bar strip */}
       <div className="border-b border-gray-100 bg-white">
-        <div className="max-w-[1280px] mx-auto px-6 py-3 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full px-4 py-2 w-full max-w-[420px]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full px-4 py-2 w-full sm:max-w-[420px]">
             <svg
               width="16"
               height="16"
@@ -64,6 +63,7 @@ export default async function HomePage({
               fill="none"
               stroke="#9ca3af"
               strokeWidth="2"
+              className="shrink-0"
             >
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.35-4.35" />
@@ -71,7 +71,7 @@ export default async function HomePage({
             <input
               type="text"
               placeholder="Search news, topics, or authors..."
-              className="flex-1 text-[13.5px] outline-none bg-transparent placeholder:text-gray-400"
+              className="flex-1 text-[13.5px] outline-none bg-transparent placeholder:text-gray-400 min-w-0"
             />
           </div>
           <span className="hidden md:block text-[12.5px] text-gray-400 whitespace-nowrap">
@@ -85,9 +85,9 @@ export default async function HomePage({
         </div>
       </div>
 
-      <main className="max-w-[1280px] mx-auto px-6 py-8">
-        {/* ── Category pills ── */}
-        <div className="flex gap-2 mb-8 flex-wrap">
+      <main className="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        {/* Category pills */}
+        <div className="flex gap-2 mb-6 sm:mb-8 flex-wrap">
           <Link
             href="/"
             className={`text-[12.5px] font-medium px-4 py-1.5 rounded-full border transition-colors ${
@@ -113,9 +113,9 @@ export default async function HomePage({
           ))}
         </div>
 
-        {/* ── Active filter banner ── */}
+        {/* Active filter banner */}
         {activeCategory && (
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-6 flex flex-wrap items-center gap-3">
             <span className="text-[13.5px] text-gray-500">
               Showing{" "}
               <strong className="text-gray-800">
@@ -132,10 +132,10 @@ export default async function HomePage({
           </div>
         )}
 
-        {/* ── Empty state ── */}
+        {/* Empty state */}
         {articles.length === 0 && (
-          <div className="text-center py-24 text-gray-400">
-            <p className="text-xl font-medium mb-3 text-gray-600">
+          <div className="text-center py-16 sm:py-24 text-gray-400">
+            <p className="text-lg sm:text-xl font-medium mb-3 text-gray-600">
               {activeCategory
                 ? `No articles in "${formatCategory(activeCategory)}" yet`
                 : "No articles yet"}
@@ -151,26 +151,26 @@ export default async function HomePage({
           </div>
         )}
 
-        {/* ── Main 2-col layout: content + sticky sidebar ── */}
+        {/* Main 2-col layout: content + sticky sidebar */}
         {articles.length > 0 && (
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 lg:gap-10">
             <div>
-              {/* ── HERO ── */}
+              {/* HERO */}
               {featured && (
-                <section className="mb-12">
-                  <div className="grid md:grid-cols-[1.7fr_1fr] gap-5">
+                <section className="mb-10 sm:mb-12">
+                  <div className="grid grid-cols-1 md:grid-cols-[1.7fr_1fr] gap-5">
                     <Link href={`/story/${featured.slug}`}>
                       <div className="group rounded-2xl overflow-hidden border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300">
                         {featured.coverImage ? (
                           <img
                             src={featured.coverImage}
                             alt={featured.title}
-                            className="w-full h-[300px] object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                            className="w-full h-[220px] sm:h-[260px] md:h-[300px] object-cover group-hover:scale-[1.02] transition-transform duration-500"
                           />
                         ) : (
-                          <ImagePlaceholder className="w-full h-[300px]" />
+                          <ImagePlaceholder className="w-full h-[220px] sm:h-[260px] md:h-[300px]" />
                         )}
-                        <div className="p-7 bg-white">
+                        <div className="p-5 sm:p-7 bg-white">
                           <span
                             className="text-[11px] font-bold tracking-widest uppercase"
                             style={{
@@ -180,11 +180,11 @@ export default async function HomePage({
                           >
                             {formatCategory(featured.category)}
                           </span>
-                          <h1 className="text-[26px] font-bold leading-[1.2] tracking-tight text-gray-900 mt-2 mb-3 group-hover:text-[#1E90FF] transition-colors">
+                          <h1 className="text-[21px] sm:text-[24px] md:text-[26px] font-bold leading-[1.2] tracking-tight text-gray-900 mt-2 mb-3 group-hover:text-[#1E90FF] transition-colors">
                             {featured.title}
                           </h1>
                           {featured.excerpt && (
-                            <p className="text-[14.5px] text-gray-500 leading-relaxed mb-4 line-clamp-2">
+                            <p className="text-[14px] sm:text-[14.5px] text-gray-500 leading-relaxed mb-4 line-clamp-2">
                               {featured.excerpt}
                             </p>
                           )}
@@ -207,17 +207,17 @@ export default async function HomePage({
                     <div className="flex flex-col gap-3">
                       {heroSide.map((article) => (
                         <Link key={article.id} href={`/story/${article.slug}`}>
-                          <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-[0_4px_14px_rgba(0,0,0,0.06)] transition-shadow grid grid-cols-[92px_1fr]">
+                          <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-[0_4px_14px_rgba(0,0,0,0.06)] transition-shadow grid grid-cols-[80px_1fr] sm:grid-cols-[92px_1fr]">
                             {article.coverImage ? (
                               <img
                                 src={article.coverImage}
                                 alt={article.title}
-                                className="w-full h-full object-cover min-h-[92px]"
+                                className="w-full h-full object-cover min-h-[80px] sm:min-h-[92px]"
                               />
                             ) : (
-                              <ImagePlaceholder className="min-h-[92px] w-full" />
+                              <ImagePlaceholder className="min-h-[80px] sm:min-h-[92px] w-full" />
                             )}
-                            <div className="p-3 flex flex-col justify-between">
+                            <div className="p-2.5 sm:p-3 flex flex-col justify-between min-w-0">
                               <div>
                                 <span
                                   className="text-[9.5px] font-bold tracking-widest uppercase"
@@ -229,7 +229,7 @@ export default async function HomePage({
                                 >
                                   {formatCategory(article.category)}
                                 </span>
-                                <p className="text-[13px] font-semibold text-gray-800 leading-snug mt-1 line-clamp-3">
+                                <p className="text-[12.5px] sm:text-[13px] font-semibold text-gray-800 leading-snug mt-1 line-clamp-3">
                                   {article.title}
                                 </p>
                               </div>
@@ -247,15 +247,15 @@ export default async function HomePage({
                 </section>
               )}
 
-              {/* ── TOP STORIES GRID ── */}
+              {/* TOP STORIES GRID */}
               {topStories.length > 0 && (
-                <section className="mb-12">
+                <section className="mb-10 sm:mb-12">
                   <div className="flex items-center justify-between mb-5">
-                    <h2 className="text-[19px] font-bold text-gray-900 tracking-tight">
+                    <h2 className="text-[17px] sm:text-[19px] font-bold text-gray-900 tracking-tight">
                       Top stories
                     </h2>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
                     {topStories.map((article) => (
                       <Link key={article.id} href={`/story/${article.slug}`}>
                         <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden h-full flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:-translate-y-0.5 transition-all duration-300">
@@ -263,10 +263,10 @@ export default async function HomePage({
                             <img
                               src={article.coverImage}
                               alt={article.title}
-                              className="w-full h-[150px] object-cover"
+                              className="w-full h-[140px] sm:h-[150px] object-cover"
                             />
                           ) : (
-                            <ImagePlaceholder className="h-[150px] w-full" />
+                            <ImagePlaceholder className="h-[140px] sm:h-[150px] w-full" />
                           )}
                           <div className="p-4 flex flex-col flex-1">
                             <span
@@ -278,7 +278,7 @@ export default async function HomePage({
                             >
                               {formatCategory(article.category)}
                             </span>
-                            <h3 className="text-[14.5px] font-bold text-gray-800 leading-snug mb-2 flex-1 group-hover:text-[#1E90FF] transition-colors">
+                            <h3 className="text-[14px] sm:text-[14.5px] font-bold text-gray-800 leading-snug mb-2 flex-1 group-hover:text-[#1E90FF] transition-colors">
                               {article.title}
                             </h3>
                             {article.excerpt && (
@@ -287,8 +287,8 @@ export default async function HomePage({
                               </p>
                             )}
                             <div className="flex items-center justify-between text-[11.5px] text-gray-400 mt-auto pt-2 border-t border-gray-50">
-                              <span>{article.author}</span>
-                              <span>
+                              <span className="truncate">{article.author}</span>
+                              <span className="shrink-0">
                                 {article.publishedAt
                                   ? formatShortDate(article.publishedAt)
                                   : ""}
@@ -302,10 +302,10 @@ export default async function HomePage({
                 </section>
               )}
 
-              {/* ── LATEST NEWS (timeline) ── */}
+              {/* LATEST NEWS (timeline) */}
               {latestNews.length > 0 && (
-                <section className="mb-12">
-                  <h2 className="text-[19px] font-bold text-gray-900 tracking-tight mb-5">
+                <section className="mb-10 sm:mb-12">
+                  <h2 className="text-[17px] sm:text-[19px] font-bold text-gray-900 tracking-tight mb-5">
                     Latest news
                   </h2>
                   <div className="relative pl-6 border-l-2 border-gray-100">
@@ -319,7 +319,7 @@ export default async function HomePage({
                                 categoryColors[article.category] || "#1E90FF",
                             }}
                           />
-                          <div className="flex items-center gap-2 mb-1">
+                          <div className="flex flex-wrap items-center gap-2 mb-1">
                             <span className="text-[11.5px] font-semibold text-gray-400">
                               {article.publishedAt
                                 ? new Date(
@@ -341,7 +341,7 @@ export default async function HomePage({
                               {formatCategory(article.category)}
                             </span>
                           </div>
-                          <h3 className="text-[14.5px] font-semibold text-gray-800 leading-snug mb-1 group-hover:text-[#1E90FF] transition-colors">
+                          <h3 className="text-[14px] sm:text-[14.5px] font-semibold text-gray-800 leading-snug mb-1 group-hover:text-[#1E90FF] transition-colors">
                             {article.title}
                           </h3>
                           <span className="text-[12px] text-gray-400">
@@ -354,7 +354,7 @@ export default async function HomePage({
                 </section>
               )}
 
-              {/* ── CATEGORY SECTIONS ── */}
+              {/* CATEGORY SECTIONS */}
               {!activeCategory &&
                 categorized.map(({ category, items }) => (
                   <CategorySection
@@ -365,7 +365,8 @@ export default async function HomePage({
                 ))}
             </div>
 
-            {/* ── SIDEBAR ── */}
+            {/* SIDEBAR */}
+
             <NewsSidebar
               trending={trending}
               mostRead={mostRead}

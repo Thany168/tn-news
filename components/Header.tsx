@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.jpg";
+import { AdSingleBanner } from "@/app/(public)/components/AdSingleBanner";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-20 ">
+    <header className="sticky top-0 z-20 shadow-sm">
       {/* Top bar */}
       <div className="bg-[#1E3A5F] px-6 h-10 flex items-center justify-between ">
         <div className="flex gap-5">
@@ -55,7 +56,7 @@ export default function Header() {
       </div>
 
       {/* Main header */}
-      <div className="bg-white border-b border-gray-100 px-6 ">
+      <div className="bg-white border-b border-gray-100 px-6 overflow overflow-hidden object-cover">
         <div className="max-w-[1100px] mx-auto flex items-center justify-between h-16 sticky top-0">
           {/* Logo */}
           <Link href="/" className="shrink-0">
@@ -64,25 +65,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Search */}
-          <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#9ca3af"
-              strokeWidth="2"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search stories..."
-              className="bg-transparent outline-none text-[13px] text-gray-700 placeholder:text-gray-400 w-36"
-            />
-          </div>
+          <AdSingleBanner />
         </div>
       </div>
     </header>

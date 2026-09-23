@@ -1,7 +1,3 @@
-// lib/session.ts
-// Signs a small JWT and stores it in an httpOnly cookie.
-// No external auth library needed — just jose (already in Next.js).
-
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";

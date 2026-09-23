@@ -61,13 +61,7 @@ export function NewsSidebar({
           className="flex-1 text-[13px] outline-none placeholder:text-gray-400"
         />
       </div>
-      {/* Advertisement placeholder */}
-      <div className="bg-gray-50 border border-dashed border-gray-300 rounded-2xl flex flex-col items-center justify-center py-10 text-gray-400">
-        <span className="text-[10px] font-semibold tracking-widest uppercase mb-1">
-          Advertisement
-        </span>
-        <span className="text-[12px]">728 × 90</span>
-      </div>
+
       {/* Trending */}
       {trending.length > 0 && (
         <WidgetCard title="Trending now">

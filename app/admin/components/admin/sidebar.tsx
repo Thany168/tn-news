@@ -61,6 +61,9 @@ export function Sidebar({ session, onClose }: SidebarProps) {
         <NavLink href="/admin/media" icon="">
           Image
         </NavLink>
+        <NavLink href="/admin/ads" icon="">
+          Ads
+        </NavLink>
       </nav>
 
       <Divider />
