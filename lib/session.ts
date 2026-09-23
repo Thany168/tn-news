@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 const COOKIE_NAME = "admin_session";
-const MAX_AGE = 60 * 60 * 24 * 7; // 7 days
+const MAX_AGE = 60 * 60 * 2;
 
 function getSecret() {
   const secret = process.env.SESSION_SECRET;
@@ -15,6 +15,7 @@ export interface SessionPayload {
   userId: string;
   username: string;
   role: "superadmin" | "editor";
+  token: string;
 }
 
 //  sign
@@ -26,7 +27,7 @@ export async function createSession(
   const token = await new SignJWT({ ...payload })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("7d")
+    .setExpirationTime("2h")
     .sign(getSecret());
 
   response.cookies.set(COOKIE_NAME, token, {
