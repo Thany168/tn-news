@@ -22,7 +22,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <span className="text-[12px] text-[#90bef5]">Follow us</span>
           <a
-            href="#"
+            href="https://www.facebook.com/Thany404/"
             aria-label="Facebook"
             className="text-[#90bef5] hover:text-white transition-colors"
           >
@@ -31,7 +31,7 @@ export default function Header() {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://t.me/thany_oun"
             aria-label="Telegram"
             className="text-[#90bef5] hover:text-white transition-colors"
           >
