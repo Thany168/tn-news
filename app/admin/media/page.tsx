@@ -4,8 +4,7 @@ import { FaRegImage } from "react-icons/fa6";
 import { MdOutlineTipsAndUpdates, MdDelete } from "react-icons/md";
 
 const BASE =
-  process.env.NEXT_PUBLIC_API_URL ??
-  "https://news-api-production-5937.up.railway.app";
+  process.env.NEXT_PUBLIC_API_URL ?? "https://news-api-94rp.onrender.com/";
 
 interface MediaItem {
   id: number;

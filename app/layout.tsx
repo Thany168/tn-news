@@ -20,7 +20,7 @@ const kantumruyPro = Kantumruy_Pro({
 export const metadata: Metadata = {
   title: {
     default: "TN News | Latest News",
-    template: "%s | TN News",
+    template: "%s | a",
   },
   description: "TN News provides the latest news, updates, and articles.",
   applicationName: "TN News",
