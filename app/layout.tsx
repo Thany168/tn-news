@@ -17,6 +17,18 @@ const kantumruyPro = Kantumruy_Pro({
   variable: "--font-heading",
   display: "swap",
 });
+export const metadata: Metadata = {
+  title: {
+    default: "TN News | Latest News",
+    template: "%s | TN News",
+  },
+  description: "TN News provides the latest news, updates, and articles.",
+  applicationName: "TN News",
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 export default function RootLayout({
   children,
 }: {
