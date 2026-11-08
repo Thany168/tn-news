@@ -15,15 +15,60 @@ export async function generateMetadata({
 }) {
   const article = await getArticleBySlug(params.slug);
 
-  if (!article) return { title: "Not Found" };
+  if (!article || !article.published) {
+    return {
+      title: "Article Not Found",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  const title = article.metaTitle || article.title;
+
+  const description =
+    article.metaDescription ||
+    article.excerpt ||
+    "Read the latest news on TN News.";
+
+  const canonicalUrl = `/story/${article.slug}`;
 
   return {
-    title: article.metaTitle || article.title,
-    description: article.metaDescription || article.excerpt,
+    title,
+    description,
+
+    alternates: {
+      canonical: canonicalUrl,
+    },
+
     openGraph: {
-      title: article.metaTitle || article.title,
-      description: article.metaDescription || article.excerpt,
+      type: "article",
+      siteName: "TN News",
+      title,
+      description,
+      url: canonicalUrl,
+      images: article.coverImage
+        ? [
+            {
+              url: article.coverImage,
+              alt: article.title,
+            },
+          ]
+        : [],
+      publishedTime: article.publishedAt || undefined,
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
       images: article.coverImage ? [article.coverImage] : [],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

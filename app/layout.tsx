@@ -20,13 +20,20 @@ const kantumruyPro = Kantumruy_Pro({
 export const metadata: Metadata = {
   title: {
     default: "TN News | Latest News",
-    template: "%s | a",
+    template: "%s | TN News",
   },
   description: "TN News provides the latest news, updates, and articles.",
   applicationName: "TN News",
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    type: "website",
+    siteName: "TN News",
+    title: "TN News | Latest News",
+    description: "TN News provides the latest news, updates, and articles.",
+    url: "/",
   },
 };
 export default function RootLayout({
